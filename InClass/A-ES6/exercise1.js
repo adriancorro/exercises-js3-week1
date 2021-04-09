@@ -24,9 +24,21 @@ console.log( defaultParameter())
 console.log( defaultParameter("adrian"))
 
 // Use the spread operator to combine arr1 and arr2
-function combineArrays(arr1, arr2) {
+/* function combineArrays(arr1, arr2) {
   return arr1.concat(arr2);
+} */
+
+function combineArrays(arr1, arr2) {
+   let result12 = [ ...arr1, ...arr2]
+   return  result12
 }
+//solucion 
+arr10 = [ 1,2,3,4,5]
+arr20 = [ 100,200,300,400,500]
+
+console.log(combineArrays(arr10,arr20 ) )
+
+
 
 //use destructuring to return the object's cyf property
  function destructuring(obj) {
