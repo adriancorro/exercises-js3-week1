@@ -9,7 +9,7 @@ function greetPeople(people) {
   });
 
   return greeting;
-}
+} 
 
 /*
   Let's trace this piece of code - what is the value of result with this input

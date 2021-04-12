@@ -52,9 +52,9 @@ console.log(combineArrays(arr10,arr20 ) )
 console.log( destructuring({cyf: 'cyfcyf'}))
 
 // use template literal to return a string with the sum of a and b
-function templateString(a, b) {
+/* function templateString(a, b) {
   return "The sum is equal to " + (a + b).toString();
-}
+} */
 
 //solucion:
 function templateString(a, b) {
