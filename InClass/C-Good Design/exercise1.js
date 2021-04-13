@@ -40,33 +40,36 @@
    */
 
 
-function myFunction(salary, taxCode, incomeTax1, incomeTax2, ownsCar) {
-  var totalIncomeTax = incomeTax1 + incomeTax2;
-  var studentLoan = (salary - 17775) * 0.09;
+function calculationSalaryDeductions(salary, taxCodes, taxCode, incomeTax, loan, interest) {
+
+  var totalIncomeTax = incomeTax.reduce((a, b) => a + b, 0);
+  var studentLoan = (salary - loan) * interest;
   var originalSalary = salary;
   var nationalInsurance = null;
-
-  if (taxCode === "1150L") {
+  if(taxCodes.find(code => code  === taxCode)=== "1150L" ){
     nationalInsurance = salary * 0.1;
-  } else if (taxCode === "ST") {
+  }else if(taxCodes.find(code => code  === taxCode)=== "ST"){
     nationalInsurance = salary * 0.05;
-  } else {
+  }else{
     nationalInsurance = salary * 0.08;
   }
-
   var deductions = [nationalInsurance, totalIncomeTax, studentLoan];
-
-  salary = salary - deductions[0];
-  salary = salary - deductions[1];
-  salary = salary - deductions[2];
+  salary = salary - deductions.reduce((a, b) => a + b, 0);
 
   return (
-    "Your gross income is £" +
+    "Your gross income is ï¿½ " +
     originalSalary.toString() +
-    " and your net income is £" +
+    " and your net income is ï¿½ " +
     salary.toString() +
     "."
   );
 }
 
-console.log(myFunction(28000, "1150L", 1000, 580, false));
+incomeTax = [1000, 580]
+loan = 17775
+interest = 0.09
+taxCodes = ["1150L", "ST"]
+taxCode = "1150L"
+console.log(calculationSalaryDeductions(28000, taxCodes,taxCode,incomeTax, loan, interest));
+
+//Your gross income is ï¿½ 28000 and your net income is ï¿½ 22699.75.
